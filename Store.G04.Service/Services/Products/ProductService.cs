@@ -3,6 +3,8 @@ using Store.G04.core;
 using Store.G04.core.Dtos.Products;
 using Store.G04.core.Entities;
 using Store.G04.core.Services.Contract;
+using Store.G04.core.Specifications;
+using Store.G04.core.Specifications.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,15 @@ namespace Store.G04.Service.Services.Products
         }
         public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
         {
-            return _mapper.Map<IEnumerable<ProductDto>>(await _unitOfWork.Repository<Product, int>().GetAllAsync());
+            var spec = new ProductSpecifications();
+            return _mapper.Map<IEnumerable<ProductDto>>(await _unitOfWork.Repository<Product, int>().GetAllWithSpecAsync(spec));
+        }
+        public async Task<ProductDto> GetProductByIdAsync(int id)
+        {
+            var spec = new ProductSpecifications(id);
+            var product = await _unitOfWork.Repository<Product, int>().GetWithSpecAsync(spec);
+            var mappedProduct = _mapper.Map<ProductDto>(product);
+            return mappedProduct;
         }
         public async Task<IEnumerable<TypeBrandDto>> GetAllTypesAsync()
         {
@@ -36,12 +46,6 @@ namespace Store.G04.Service.Services.Products
             var brands = await _unitOfWork.Repository<ProductType, int>().GetAllAsync();
             var mappedBrands = _mapper.Map<IEnumerable<TypeBrandDto>>(brands);
             return mappedBrands;
-        }
-        public async Task<ProductDto> GetProductByIdAsync(int id)
-        {
-            var product = await _unitOfWork.Repository<Product,int>().GetAsync(id);
-            var mappedProduct = _mapper.Map<ProductDto>(product);
-            return mappedProduct;
         }
     }
 }

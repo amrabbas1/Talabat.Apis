@@ -16,8 +16,6 @@ namespace Store.G04.core.Specifications
         {
             Criteria = expression;
         }
-
-        //Constructor without Criteria
         public BaseSpecifications()
         {
             

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.G04.core.Entities;
 using Store.G04.core.Repositories.Contract;
+using Store.G04.core.Specifications;
 using Store.G04.Repository.Data.Contexts;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,21 @@ namespace Store.G04.Repository.Repositories
         public void Delete(TEntity entity)
         {
             _context.Remove(entity);
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAllWithSpecAsync(ISpecifications<TEntity, Tkey> spec)
+        {
+            return await ApplySpecifications(spec).ToListAsync();
+        }
+
+        public async Task<TEntity> GetWithSpecAsync(ISpecifications<TEntity, Tkey> spec)
+        {
+            return await ApplySpecifications(spec).FirstOrDefaultAsync();
+        }
+
+        private IQueryable<TEntity> ApplySpecifications(ISpecifications<TEntity, Tkey> spec)
+        {
+            return SpecificationsEvaluator<TEntity, Tkey>.GetQuery(_context.Set<TEntity>(), spec);
         }
     }
 }
