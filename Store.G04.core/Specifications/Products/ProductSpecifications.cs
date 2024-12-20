@@ -13,8 +13,27 @@ namespace Store.G04.core.Specifications.Products
         {
             ApplyIncludes();
         }
-        public ProductSpecifications()
+        public ProductSpecifications(string? sort)
         {
+            if(!string.IsNullOrEmpty(sort))
+            {
+                switch(sort)
+                {
+                    case "priceAsc":
+                        OrderBy = P => P.Price;
+                        break;
+                    case "priceDesc":
+                        OrderByDescending = P => P.Name;
+                        break;
+                    default:
+                        OrderBy = P => P.Name;
+                        break;
+                }
+            }
+            else
+            {
+                OrderBy = P => P.Name;
+            }
             ApplyIncludes();
         }
         private void ApplyIncludes()
