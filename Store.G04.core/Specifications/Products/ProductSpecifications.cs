@@ -13,7 +13,12 @@ namespace Store.G04.core.Specifications.Products
         {
             ApplyIncludes();
         }
-        public ProductSpecifications(string? sort)
+        public ProductSpecifications(string? sort, int? brandId, int? typeId) : base(
+            P=>
+            (!brandId.HasValue || brandId == P.BrandId)
+            &&
+            (!typeId.HasValue ||  typeId == P.TypeId)
+            )
         {
             if(!string.IsNullOrEmpty(sort))
             {

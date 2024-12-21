@@ -12,8 +12,8 @@ namespace Store.G04.core.Specifications
     {
         public Expression<Func<TEntity, bool>> Criteria { get; set; } = null;
         public List<Expression<Func<TEntity, object>>> Includes { get; set; } = new List<Expression<Func<TEntity, object>>>();//Empty List
-        public Expression<Func<TEntity, object>> OrderBy { get ; set ; }
-        public Expression<Func<TEntity, object>> OrderByDescending { get; set; }
+        public Expression<Func<TEntity, object>> OrderBy { get; set; } = null;
+        public Expression<Func<TEntity, object>> OrderByDescending { get; set; } = null;
 
         public BaseSpecifications(Expression<Func<TEntity, bool>> expression)
         {
