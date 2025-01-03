@@ -14,6 +14,9 @@ namespace Store.G04.core.Specifications
         public List<Expression<Func<TEntity, object>>> Includes { get; set; } = new List<Expression<Func<TEntity, object>>>();//Empty List
         public Expression<Func<TEntity, object>> OrderBy { get; set; } = null;
         public Expression<Func<TEntity, object>> OrderByDescending { get; set; } = null;
+        public int Skip { get ; set ; }
+        public int Take { get ; set ; }
+        public bool IsPaginationEnabled { get ; set ; }
 
         public BaseSpecifications(Expression<Func<TEntity, bool>> expression)
         {
@@ -22,6 +25,12 @@ namespace Store.G04.core.Specifications
         public BaseSpecifications()
         {
             
+        }
+        public void ApplyPagination(int skip, int take)
+        {
+            IsPaginationEnabled = true;
+            Skip = skip;
+            Take = take;
         }
     }
 }

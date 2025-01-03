@@ -26,6 +26,10 @@ namespace Store.G04.Repository
             {
                 query = query.OrderByDescending(spec.OrderByDescending);
             }
+            if(spec.IsPaginationEnabled == true)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
 
             query = spec.Includes.Aggregate(query, (currentQuery, includeExpression) => currentQuery.Include(includeExpression));
 
