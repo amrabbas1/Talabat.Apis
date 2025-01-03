@@ -11,12 +11,14 @@ namespace Store.G04.core.Specifications.Products
     {
         public ProductWithCountSpecifications(ProductSpecParams productSpec) : base(
             P =>
+            (string.IsNullOrEmpty(productSpec.Search) || P.Name.ToLower().Contains(productSpec.Search))
+            &&
             (!productSpec.BrandId.HasValue || productSpec.BrandId == P.BrandId)
             &&
             (!productSpec.TypeId.HasValue || productSpec.TypeId == P.TypeId)
             )
         {
-             
+            
         }
     }
 }
