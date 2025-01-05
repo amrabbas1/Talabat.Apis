@@ -1,5 +1,8 @@
 
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Store.G04.APIs.Errors;
 using Store.G04.core;
 using Store.G04.core.Mapping.Products;
 using Store.G04.core.Services.Contract;
@@ -30,6 +33,23 @@ namespace Store.G04.APIs
             builder.Services.AddScoped<IproductService, ProductService>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddAutoMapper(M => M.AddProfile(new ProductProfile(builder.Configuration)));
+
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = (actionContext) =>
+                {
+                    var errors = actionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)
+                                            .SelectMany(P => P.Value.Errors)
+                                            .Select(E => E.ErrorMessage)
+                                            .ToArray();
+
+                    var response = new ApiValidationErrorResponse()
+                    {
+                        Errors = errors
+                    };
+                    return new BadRequestObjectResult(response);
+                };
+            });
 
             var app = builder.Build();
 
