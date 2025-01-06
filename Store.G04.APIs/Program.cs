@@ -10,7 +10,7 @@ using Store.G04.core.Services.Contract;
 using Store.G04.Repository;
 using Store.G04.Repository.Data.Contexts;
 using Store.G04.Service.Services.Products;
-
+using Store.G04.APIs.Helper;
 namespace Store.G04.APIs
 {
     public class Program
@@ -20,81 +20,11 @@ namespace Store.G04.APIs
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
-            builder.Services.AddDbContext<StoreDbContext>(option =>
-            {
-                option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            });
-
-            builder.Services.AddScoped<IproductService, ProductService>();
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddAutoMapper(M => M.AddProfile(new ProductProfile(builder.Configuration)));
-
-            builder.Services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.InvalidModelStateResponseFactory = (actionContext) =>
-                {
-                    var errors = actionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)//if count > 0 => there is errors
-                                            .SelectMany(P => P.Value.Errors)
-                                            .Select(E => E.ErrorMessage)
-                                            .ToArray();
-
-                    var response = new ApiValidationErrorResponse()
-                    {
-                        Errors = errors
-                    };
-                    return new BadRequestObjectResult(response);
-                };
-            });
+            builder.Services.AddDependency(builder.Configuration);
 
             var app = builder.Build();
 
-            using var scope = app.Services.CreateScope();
-
-            var services = scope.ServiceProvider;
-
-            var context = services.GetRequiredService<StoreDbContext>();
-            var loggerFactory = services.GetRequiredService<ILoggerFactory>();
-
-            try
-            {
-                await context.Database.MigrateAsync();
-                await StoreDbContextSeed.SeedAsync(context);
-            }
-
-            catch (Exception ex)
-            {
-                var logger = loggerFactory.CreateLogger<Program>();
-                logger.LogError(ex, "There are problems during apply migrations !");
-            }
-
-
-            app.UseMiddleware<ExceptionMiddleWare>();//Configure User-Defined[ExceptionMiddleWare] Middleware
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-            app.UseStatusCodePagesWithReExecute("/error/{0}");//lma b3ml call endpoint msh mwgoda byroh 3la
-                                                              //el end point ele el path bta3ha : "/error/{0}"
-                                                              //ele mwgoda fe ErrorController
-
-            app.UseStaticFiles();
-            
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
+            await app.ConfigureMiddleWareAsync();
 
             app.Run();
         }
