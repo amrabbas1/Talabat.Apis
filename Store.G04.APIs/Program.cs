@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Store.G04.APIs.Errors;
+using Store.G04.APIs.MiddleWares;
 using Store.G04.core;
 using Store.G04.core.Mapping.Products;
 using Store.G04.core.Services.Contract;
@@ -38,7 +39,7 @@ namespace Store.G04.APIs
             {
                 options.InvalidModelStateResponseFactory = (actionContext) =>
                 {
-                    var errors = actionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)
+                    var errors = actionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)//if count > 0 => there is errors
                                             .SelectMany(P => P.Value.Errors)
                                             .Select(E => E.ErrorMessage)
                                             .ToArray();
@@ -72,12 +73,19 @@ namespace Store.G04.APIs
                 logger.LogError(ex, "There are problems during apply migrations !");
             }
 
+
+            app.UseMiddleware<ExceptionMiddleWare>();//Configure User-Defined[ExceptionMiddleWare] Middleware
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseStatusCodePagesWithReExecute("/error/{0}");//lma b3ml call endpoint msh mwgoda byroh 3la
+                                                              //el end point ele el path bta3ha : "/error/{0}"
+                                                              //ele mwgoda fe ErrorController
 
             app.UseStaticFiles();
             
