@@ -13,7 +13,7 @@ namespace Store.G04.Repository.Data.Contexts
     {
         public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
         {
-
+            //Add-Migration AddIdentityTables -Context StoreIdentityDbContext -OutputDir Identity/Migrations
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
