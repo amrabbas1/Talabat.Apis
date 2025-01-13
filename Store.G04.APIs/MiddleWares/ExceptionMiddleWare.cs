@@ -32,8 +32,9 @@ namespace Store.G04.APIs.MiddleWares
                 var response = _env.IsDevelopment() ?
                     new ApiExceptionResponse(StatusCodes.Status500InternalServerError,ex.Message, ex?.StackTrace?.ToString())
                     : new ApiExceptionResponse(StatusCodes.Status500InternalServerError);
+                var options = new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
-                var json = JsonSerializer.Serialize(response);
+                var json = JsonSerializer.Serialize(response, options);
 
                 await context.Response.WriteAsync(json);
             }

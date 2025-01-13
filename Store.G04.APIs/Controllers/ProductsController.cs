@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Store.G04.APIs.Attributes;
 using Store.G04.APIs.Errors;
 using Store.G04.core.Dtos.Products;
 using Store.G04.core.Helper;
@@ -18,8 +19,10 @@ namespace Store.G04.APIs.Controllers
         {
             _productService = productService;
         }
+
         [ProducesResponseType(typeof(PaginationResponse<ProductDto>), StatusCodes.Status200OK)]
         [HttpGet]// Get BaseUrl/api/Products
+        [Cached(100)]
         //sort : name,priceAsc,priceDesc
         public async Task<ActionResult<PaginationResponse<ProductDto>>> GetAllProducts([FromQuery] ProductSpecParams productSpec)//endpoint
         {
