@@ -15,6 +15,8 @@ using Store.G04.Service.Services.Caches;
 using Store.G04.Repository.Identity.Contexts;
 using Store.G04.core.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
+using Store.G04.Service.Services.Tokens;
+using Store.G04.Service.Services.Users;
 
 namespace Store.G04.APIs.Helper
 {
@@ -66,6 +68,8 @@ namespace Store.G04.APIs.Helper
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICacheService, CacheService>();
             services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }
