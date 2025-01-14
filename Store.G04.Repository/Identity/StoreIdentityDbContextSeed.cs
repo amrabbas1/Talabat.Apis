@@ -31,7 +31,6 @@ namespace Store.G04.Repository.Identity
                 };
 
                 var x = await _userManager.CreateAsync(user, "P@ssW0rd");
-                Console.WriteLine($"Flag = {x}");
             }
         }
     }
