@@ -104,7 +104,7 @@ namespace Store.G04.APIs.Controllers
 
             var result = await _userManager.UpdateAsync(user);
             if (!result.Succeeded) return BadRequest(new ApiErrorResponse(StatusCodes.Status400BadRequest
-                , "Failed to update address"));
+                ,"Failed to update address"));
 
             return Ok(addressDto);
         }
