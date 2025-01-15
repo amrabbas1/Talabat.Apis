@@ -20,6 +20,7 @@ using Store.G04.Service.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Store.G04.core.Mapping.Auth;
 
 namespace Store.G04.APIs.Helper
 {
@@ -81,6 +82,7 @@ namespace Store.G04.APIs.Helper
         {
             services.AddAutoMapper(M => M.AddProfile(new ProductProfile(configuration)));
             services.AddAutoMapper(M => M.AddProfile(new BasketProfile()));
+            services.AddAutoMapper(M => M.AddProfile(new AuthProfile()));
 
             return services;
         }
