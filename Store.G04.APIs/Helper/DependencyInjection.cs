@@ -21,6 +21,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Store.G04.core.Mapping.Auth;
+using Store.G04.core.Mapping.Orders;
+using Store.G04.Service.Services.Orders;
 
 namespace Store.G04.APIs.Helper
 {
@@ -75,6 +77,7 @@ namespace Store.G04.APIs.Helper
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IOrderService, OrderService>();
 
             return services;
         }
@@ -83,6 +86,8 @@ namespace Store.G04.APIs.Helper
             services.AddAutoMapper(M => M.AddProfile(new ProductProfile(configuration)));
             services.AddAutoMapper(M => M.AddProfile(new BasketProfile()));
             services.AddAutoMapper(M => M.AddProfile(new AuthProfile()));
+            services.AddAutoMapper(M => M.AddProfile(new OrderProfile(configuration)));
+
 
             return services;
         }

@@ -23,7 +23,7 @@ namespace Store.G04.Service.Services.Orders
             _unitOfWork = unitOfWork;
             _basketRepository = basketRepository;
         }
-        public async Task<Order> GetOrderAsync(string buyerEmail, string basketId, int deliveryMethodId, Address shippingAddress)
+        public async Task<Order> CreateOrderAsync(string buyerEmail, string basketId, int deliveryMethodId, Address shippingAddress)
         {
             var basket = await _basketRepository.GetBasketAsync(basketId);
 

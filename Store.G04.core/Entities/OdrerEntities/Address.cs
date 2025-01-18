@@ -11,7 +11,7 @@ namespace Store.G04.core.Entities.OdrerEntities
     {
         public Address()
         {
-            
+
         }
         public Address(string firstName, string lastName, string city, string street, string country)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.G04.core.Entities.OdrerEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,8 @@ namespace Store.G04.core.Entities
     {
         public string Id { get; set; }
         public List<BasketItem> Items { get; set; }
+        public int? DeliveryMethodId { get; set; }
+        public string? PaymentIntentId { get; set; }
+        public string? ClientSecret { get; set; }
     }
 }
