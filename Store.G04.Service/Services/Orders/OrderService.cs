@@ -17,11 +17,13 @@ namespace Store.G04.Service.Services.Orders
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IBasketRepository _basketRepository;
+        private readonly IPaymentService _paymentService;
 
-        public OrderService(IUnitOfWork unitOfWork, IBasketRepository basketRepository)
+        public OrderService(IUnitOfWork unitOfWork, IBasketRepository basketRepository, IPaymentService paymentService)
         {
             _unitOfWork = unitOfWork;
             _basketRepository = basketRepository;
+            _paymentService = paymentService;
         }
         public async Task<Order> CreateOrderAsync(string buyerEmail, string basketId, int deliveryMethodId, Address shippingAddress)
         {
@@ -44,7 +46,16 @@ namespace Store.G04.Service.Services.Orders
 
             var subTotal = orderItems.Sum(I => I.Price * I.Quantity);
 
-            var order = new Order(buyerEmail, shippingAddress, deliveryMethod, orderItems, subTotal, "");
+            if(!string.IsNullOrEmpty(basket.PaymentIntentId))
+            {
+                var spec = new OrderSpecificationWithPaymentIntentId(basket.PaymentIntentId);
+                var ExistOrder = await _unitOfWork.Repository<Order, int>().GetWithSpecAsync(spec);
+                _unitOfWork.Repository<Order, int>().Delete(ExistOrder);
+            }
+
+            var basketWithPayment = await _paymentService.CreateOrUpdatePaymentIntentIdAsync(basketId);
+
+            var order = new Order(buyerEmail, shippingAddress, deliveryMethod, orderItems, subTotal, basketWithPayment.PaymentIntentId);
 
             await _unitOfWork.Repository<Order, int>().AddAsync(order);
 
