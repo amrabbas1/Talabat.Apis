@@ -10,12 +10,12 @@ namespace Store.G04.APIs.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BasketController : ControllerBase
+    public class BasketsController : ControllerBase
     {
         private readonly IBasketRepository _basketRepository;
         private readonly IMapper _mapper;
 
-        public BasketController(IBasketRepository basketRepository, IMapper mapper)
+        public BasketsController(IBasketRepository basketRepository, IMapper mapper)
         {
             _basketRepository = basketRepository;
             _mapper = mapper;

@@ -23,6 +23,7 @@ using System.Text;
 using Store.G04.core.Mapping.Auth;
 using Store.G04.core.Mapping.Orders;
 using Store.G04.Service.Services.Orders;
+using Store.G04.Service.Services.Payments;
 
 namespace Store.G04.APIs.Helper
 {
@@ -78,6 +79,7 @@ namespace Store.G04.APIs.Helper
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IPaymentService, PaymentService>();
 
             return services;
         }

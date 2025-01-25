@@ -65,7 +65,7 @@ namespace Store.G04.Service.Services.Payments
                 var options = new PaymentIntentCreateOptions()
                 {
                     Amount = (long) ((subTotal + shippingPrice) * 100),
-                    PaymentMethodTypes = new List<string>() {"Card"},
+                    PaymentMethodTypes = new List<string>() {"card"},
                     Currency = "usd"
                 };
                 paymentIntent = await service.CreateAsync(options);
