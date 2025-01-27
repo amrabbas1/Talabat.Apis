@@ -4,6 +4,7 @@ using Store.G04.core.Entities;
 using Store.G04.core.Entities.OdrerEntities;
 using Store.G04.core.Repositories.Contract;
 using Store.G04.core.Services.Contract;
+using Store.G04.core.Specifications.Orders;
 using Stripe;
 using System;
 using System.Collections.Generic;
@@ -88,6 +89,26 @@ namespace Store.G04.Service.Services.Payments
             if (basket == null) return null;
 
             return basket;
+        }
+
+        public async Task<Order> UpdatePaymentIntentForSucceedOrFailed(string paymentIntentId, bool flag)
+        {
+            var spec = new OrderSpecificationWithPaymentIntentId(paymentIntentId);
+            var order = await _unitOfWork.Repository<Order, int>().GetWithSpecAsync(spec);
+            if(flag)
+            {
+                order.Status = OrderStatus.PaymentReceived;
+            }
+            else
+            {
+                order.Status = OrderStatus.PaymentFailed;
+            }
+
+            _unitOfWork.Repository<Order, int>().Update(order);
+
+            await _unitOfWork.CompleteAsync();
+
+            return order;
         }
     }
 }
