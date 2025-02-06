@@ -16,17 +16,17 @@ namespace Store.G04.Repository.Identity
             {
                 var user = new AppUser()
                 {
-                    Email = "ahmedaminc41@gmail.com",
-                    DisplayName = "Ahmed Amin",
-                    UserName = "ahmed_amin",
+                    Email = "amrabbas@gmail.com",
+                    DisplayName = "Amr Abbas",
+                    UserName = "Amr_Abbas",
                     PhoneNumber = "01111122222",
                     Address = new Address()
                     {
-                        FName = "Ahmed",
-                        LName = "Amin",
-                        City = "ElShorouk",
+                        FName = "Amr",
+                        LName = "Abbas",
+                        City = "Nasr City",
                         Country = "Egypt",
-                        Street = "ElShabab"
+                        Street = "Makram"
                     }
                 };
 
