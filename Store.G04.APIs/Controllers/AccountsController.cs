@@ -46,6 +46,11 @@ namespace Store.G04.APIs.Controllers
         [HttpPost("register")]//Post : /api/Accounts/register
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            if(CheckEmailExists(registerDto.Email).Result.Value)
+            {
+                return BadRequest(new ApiErrorResponse(400, "Email Is Already Exist"));
+            }
+
             var user = await _userService.RegisterAsync(registerDto);
             if (user == null) return BadRequest(new ApiErrorResponse(StatusCodes.Status400BadRequest,"Invalid Signup"));
             return Ok(user);
@@ -109,6 +114,13 @@ namespace Store.G04.APIs.Controllers
             return Ok(addressDto);
         }
 
+        [HttpGet("emailExists")]//baseurl/api/accounts/emailExists
+        public async Task<ActionResult<bool>> CheckEmailExists(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user is null) return false;
+            else return true;
+        }
 
     }
 }
