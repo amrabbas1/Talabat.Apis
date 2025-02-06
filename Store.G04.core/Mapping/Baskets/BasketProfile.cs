@@ -16,6 +16,7 @@ namespace Store.G04.core.Mapping.Baskets
         public BasketProfile()
         {
             CreateMap<CustomerBasket, CustomerBasketDto>().ReverseMap();
+            CreateMap<BasketItemDto, BasketItem>().ReverseMap();
         }
     }
 }
