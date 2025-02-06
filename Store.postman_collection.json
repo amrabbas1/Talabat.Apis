@@ -1,0 +1,1180 @@
+{
+	"info": {
+		"_postman_id": "7f5a9590-0200-4962-8818-087d57f83554",
+		"name": "Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34267295",
+		"_collection_link": "https://restless-meadow-468271.postman.co/workspace/Asp.Net-C42~6f195296-19cd-4a54-9f85-6a9873af6cde/collection/34267295-7f5a9590-0200-4962-8818-087d57f83554?action=share&source=collection_link&creator=34267295"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOidasdsadsadJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJhaG1lZCBhbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiYWhtZWQuYW1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTExMTExIiwiZXhwIjoxNzI5MDkwOTkwLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MTg2LyIsImF1ZCI6Ik15U3RvcmVBcHAifQ.sHmm4o1_5DA1JAP2r5DgulwjScKe0QzNwaodcMEiFk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Products?pageIndex=1&pageSize=2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Brands",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhaG1lZGFtaW5jNDFAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiQWhtZWQgQW1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTIyMjIiLCJleHAiOjE3Mjg5Mzc0NjIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNjUvIiwiYXVkIjoiTXlTdG9yZUFwcCJ9.6tteNaE6DsrP7lPLlQPRvmXGYGC_LexAgmMRLVFfzNg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Products/brands",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhaG1lZGFtaW5jNDFAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiQWhtZWQgQW1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTIyMjIiLCJleHAiOjE3Mjg5Mzc0NjIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNjUvIiwiYXVkIjoiTXlTdG9yZUFwcCJ9.6tteNaE6DsrP7lPLlQPRvmXGYGC_LexAgmMRLVFfzNg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Products/types",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Products/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products With Specifications",
+			"item": [
+				{
+					"name": "Get All Products By BrandId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n   \"comment\" : \"v good\",\r\n   \"userId\" : \"1234\",\r\n   \"productId\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Products?pageIndex=1&pageSize=2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products By TypeId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7193/api/Products",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7193",
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products By TypeId And Brand Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7193/api/Products",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7193",
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products and sort By Price Asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7193/api/Products?sort=PriceAsc",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7193",
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "PriceAsc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products and sort By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7193/api/Products",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7193",
+							"path": [
+								"api",
+								"Products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Api Errors",
+			"item": [
+				{
+					"name": "Get Not Found Error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/buggy/notfound",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"notfound"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Server Error Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/buggy/servererror",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"servererror"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bad Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/buggy/badrequest",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"badrequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bad Request Validation Error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/buggy/badrequest/ahmed",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"badrequest",
+								"ahmed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Unauthorized Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/buggy/unauthorized",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"unauthorized"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Not Found Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/Test",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"Test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Baskets",
+			"item": [
+				{
+					"name": "Create Basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"basket1\",\r\n  \"items\": [\r\n    {\r\n      \"id\": 4,\r\n      \"productName\": \".NET Black -- Updated\",\r\n      \"price\": 10,\r\n      \"quantity\": 32,\r\n      \"pictureUrl\": \"https://localhost:5001/images/products/2.png\",\r\n      \"brand\": \".NET\",\r\n      \"type\": \"USB Memory Stick\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/baskets",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basket",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"basket1\",\r\n  \"items\": [\r\n    {\r\n      \"id\": 4,\r\n      \"productName\": \".NET Black & White Mug\",\r\n      \"price\": 10,\r\n      \"quantity\": 32,\r\n      \"pictureUrl\": \"https://localhost:5001/images/products/2.png\",\r\n      \"brand\": \".NET\",\r\n      \"category\": \"USB Memory Stick\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/baskets?id=basket1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"baskets"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "basket1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"basket1\",\r\n  \"items\": [\r\n    {\r\n      \"id\": 4,\r\n      \"productName\": \".NET Black \",\r\n      \"price\": 10,\r\n      \"quantity\": 3,\r\n      \"pictureUrl\": \"https://localhost:5001/images/products/2.png\",\r\n      \"brand\": \".NET\",\r\n      \"type\": \"USB Memory Stick\"\r\n    }\r\n  ],\r\n\"deliveryMethodId\": \"1\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Basket",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Basket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"basket1\",\r\n  \"items\": [\r\n    {\r\n      \"id\": 4,\r\n      \"productName\": \".NET Black & White Mug\",\r\n      \"price\": 10,\r\n      \"quantity\": 32,\r\n      \"pictureUrl\": \"https://localhost:5001/images/products/2.png\",\r\n      \"brand\": \".NET\",\r\n      \"category\": \"USB Memory Stick\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/baskets?id=basket1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"baskets"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "basket1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Register As Amr",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"OmarAhmed@gmail.com\",\r\n    \"DisplayName\":\"Omar Ahmed\",\r\n    \"PhoneNumber\":\"01234567891\",\r\n    \"password\": \"Pa$$w0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/accounts/register",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Ahmedaminc41@gmail.com\",\r\n    \"password\": \"P@ssW0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/accounts/login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJhaG1lZCBhbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiYWhtZWRhbWluYzQxQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTExMTExIiwiZXhwIjoxNzI5MDkxMzg3LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo3MTg2LyIsImF1ZCI6Ik15U3RvcmVBcHAifQ.0Bmau2Q3iQkwBYghUjswH73uYV746z3rBkosy3bd3uc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/accounts/GetCurrentUser",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"GetCurrentUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User Address",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJBaG1lZCBBbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiQWhtZWRhbWluYzQxQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTExMTEiLCJleHAiOjE3MjkwMDAwMDYsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcwNDAvIiwiYXVkIjoiTXlTdG9yZUFwcCJ9._kCFYhMuz54p8p13SDQ3KwvShY4uoBgf_7p9lE2hNeY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhaG1lZG5hc3I5N0BnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJBaG1lZCBOYXNyIiwiZXhwIjoxNjYyNjQ0MjMwLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyIsImF1ZCI6Ik15U2VjdXJlZEFwaVVzZXJzIn0.RtIg0EhGFEep_WdvpKtzmL6fW6c1csOeX7Nf-7T1f-g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/accounts/address",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Address (Amr)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJPbWFyIEFobWVkIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiT21hckFobWVkQGdtYWlsLmNvbSIsImV4cCI6MTY5OTExODMyNiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI0NyIsImF1ZCI6Ik15U2VjdXJlS2V5In0.k0odgRf9-NpRdRj85_fnxbjIfNIDvw9sX9H7aRSiULU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhaG1lZG5hc3I5N0BnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJBaG1lZCBOYXNyIiwiZXhwIjoxNjYyNzQ0Mzc3LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyIsImF1ZCI6Ik15U2VjdXJlZEFwaVVzZXJzIn0.cc5Om4AabDr4ZuVhc7VXZaxXY77FgYCvowD2_TvV0Pg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Hamda\",\n  \"lastName\": \"Hamda\",\n  \"street\": \"10 The Updated Street\",\n  \"city\": \"Giza\",\n  \"country\": \"Egypt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/accounts/address",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"address"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "CreateOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJBaG1lZCBhbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiQWhtZWRhbWluYzQxQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTExMTExMSIsImV4cCI6MTcyOTMzNDc1NywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzE5My8iLCJhdWQiOiJNeVN0b3JlQXBwIn0.WR_kWsHtoFlIN7dZETJfPJAqkMWHowwQkMHMXD074Bc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"basketId\": \"basket1\",\r\n  \"deliveryMethodId\": 1,\r\n  \"shipToAddress\": {\r\n    \"firstName\": \"ahmed\",\r\n    \"lastName\": \"ali\",\r\n    \"street\": \"NasrCity\",\r\n    \"city\": \"Cairo\",\r\n    \"country\": \"Egypt\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Orders",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders For User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJBaG1lZCBhbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiQWhtZWRhbWluYzQxQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTExMTExMSIsImV4cCI6MTcyOTMzNDc1NywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzE5My8iLCJhdWQiOiJNeVN0b3JlQXBwIn0.WR_kWsHtoFlIN7dZETJfPJAqkMWHowwQkMHMXD074Bc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Orders",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By Id For User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJBaG1lZCBhbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiQWhtZWRhbWluYzQxQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTExMTExMSIsImV4cCI6MTcyOTMzNDc1NywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzE5My8iLCJhdWQiOiJNeVN0b3JlQXBwIn0.WR_kWsHtoFlIN7dZETJfPJAqkMWHowwQkMHMXD074Bc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Orders/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Delivery Methods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/Orders/DeliveryMethods",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Orders",
+								"DeliveryMethods"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Create Basket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"order1\",\n    \"items\": [\n        {\n            \"productName\": \".NET Black & White Mug\",\n            \"price\": 1,\n            \"quantity\": 2,\n            \"pictureUrl\": \"https://localhost:5001/images/products/2.png\",\n            \"brand\": \".NET\",\n            \"type\": \"USB Memory Stick\",\n            \"id\": 1\n        }\n    ],\n    \"deliveryMethodId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/baskets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Payment Intent as Amr",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJBaG1lZCBhbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiQWhtZWRhbWluYzQxQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDExMTExMTExMTExMSIsImV4cCI6MTcyOTMzODk1NCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzE5My8iLCJhdWQiOiJNeVN0b3JlQXBwIn0.kh0gY6Sj1sUWOfM25mRy8gpLkEqsnFxDppqduxFVYpA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Messi_Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/Payments/order1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"Payments",
+								"order1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Basket with Client Secret as Amr",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"id\": \"Basket01\",\n    \"items\": [\n        {\n            \"id\": 1,\n            \"productName\": \".NET Black & White Mug\",\n            \"pictureUrl\": \"https://localhost:5001/images/products/2.png\",\n            \"price\": 200.00,\n            \"brand\": \".NET\",\n            \"type\": \"USB Memory Stick\",\n            \"quantity\": 2\n        }\n    ],\n    \"paymentIntentId\": \"pi_3O9n4oK2b8REKE5S1v991rCf\",\n    \"clientSecret\": \"pi_3O9n4oK2b8REKE5S1v991rCf_secret_fwNMmfPchfmJjGIejAFOx3Edy\",\n    \"deliveryMethodId\": 1,\n    \"shippingCost\": 10.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/baskets",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Payment Intent as Amr",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{hamda_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Messi_Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/payments/order1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"payments",
+								"order1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validate EndPoints",
+			"item": [
+				{
+					"name": "Update Basket Zero Quantity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"basket1\",\n  \"items\": [\n    {\n      \"id\": 4,\n      \"productName\": \".NET Black & White Mug\",\n      \"price\": 100,\n      \"quantity\": 2,\n      \"pictureUrl\": \"https://localhost:5001/images/products/2.png\",\n      \"brand\": \".NET\",\n      \"type\": \"USB Memory Stick\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/baskets",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register To Check Email Exists As Omar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\": \"Aya Mahmoud\",\r\n  \"email\": \"AyaMahmoud@gmail.com\",\r\n  \"phoneNumber\": \"01122334455\",\r\n  \"password\": \"Pa$$w0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/accounts/Register",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check if email exists",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{bob_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/accounts/EmailExists?email=Omarhmed@gmail.com",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"EmailExists"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "Omarhmed@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "https://localhost:7193",
+			"type": "string"
+		},
+		{
+			"key": "Hamda",
+			"value": "aSAs",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "Token",
+			"value": ""
+		}
+	]
+}
